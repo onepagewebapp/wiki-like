@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ title }}</h1>
+    <div>
+        <!-- Render the HTML content of the entry -->
+        <div>{{ content|safe }}</div>
+    </div>
+    
+    
+    <!-- Delete Button -->
+    <form action="{% url 'delete_entry' entry.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form><br>
+    
+    <a href="{% url 'edit_page' entry.id %}">Edit this entry</a><br>
+    
+    <a href="{% url 'index' %}">Back to Home</a>
+
+{% endblock %}

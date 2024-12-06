@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Page | Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    <h1>Edit Entry: {{ form.instance.title }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="{% url 'entry_detail' form.instance.id %}">Back to entry</a>
+    <a href="{% url 'index' %}">Back to Home</a>
+
+{% endblock %}
