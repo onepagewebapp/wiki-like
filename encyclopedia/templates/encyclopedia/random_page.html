@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Random Page | Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ entry.title }}</h1>
+    <p>{{ entry.content }}</p>
+    <!--<div>
+        <div>{{ html_content|safe }}</div>
+    </div>-->
+    <br>
+    <a href="{% url 'index' %}">Back to Home</a>
+
+{% endblock %}
